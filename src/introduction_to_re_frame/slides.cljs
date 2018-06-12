@@ -5,4 +5,4 @@
    [:sub-title "by André de Jager"]])
 
 (def about-me
-  [[:p "I'm Cool"]])
+  [[:points ["I Like Beer" "I'm Cool"]]])

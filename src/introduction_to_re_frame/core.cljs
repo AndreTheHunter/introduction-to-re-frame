@@ -23,7 +23,8 @@
     (get slides position)))
 
 (defn root []
-  (into [:section] @(rf/subscribe [:current-slide])))
+  [:grid
+   (into [:slide] @(rf/subscribe [:current-slide]))])
 
 (defn ^:dev/after-load render []
   (r/render [root] (js/document.getElementById "app")))

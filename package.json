@@ -6,22 +6,24 @@
   "homepage": "https://github.com/AndreTheHunter/introduction-to-re-frame#readme",
   "version": "1.0.0",
   "scripts": {
-    "sass": "sass public/app.sass public/app.css",
-    "watch-cljs": "shadow-cljs watch app &",
-    "start": "npm run watch-cljs; npm-watch",
+    "build:sass": "sass public/sass/app.sass public/css/app.css",
+    "watch:sass": "onchange 'public/sass/*.sass' -- npm run build:sass",
+    "watch:cljs": "shadow-cljs watch app",
+    "start": "npm run watch:cljs & npm run watch:sass",
     "stop": "shadow-cljs stop"
   },
   "watch": {
-    "sass": "public/sass/*.sass"
-  },
-  "devDependencies": {
-    "npm-watch": "^0.3.0",
-    "sass": "^1.5.1",
-    "shadow-cljs": "^2.4.1"
+    "sass": "public/sass/**.sass"
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "reflex-grid": "^2.0.2"
+  },
+  "devDependencies": {
+    "onchange": "^4.0.0",
+    "sass": "^1.5.1",
+    "shadow-cljs": "^2.4.1"
   }
 }

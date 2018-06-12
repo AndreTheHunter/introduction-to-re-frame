@@ -2,8 +2,7 @@
 /node_modules/
 /target/
 /public/js/
-/public/app.css
-/public/app.css.map
+/public/css/
 !/.git*
 !/.idea/modules.xml
 !/.idea/vcs.xml
