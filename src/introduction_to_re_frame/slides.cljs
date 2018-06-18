@@ -1,8 +1,10 @@
 (ns introduction-to-re-frame.slides)
 
-(def title
-  [[:title "Introduction to re-frame"]
-   [:sub-title "by André de Jager"]])
+(def welcome
+  {:title ["Introduction to re-frame"
+           "by André de Jager"]})
 
 (def about-me
-  [[:points ["I Like Beer" "I'm Cool"]]])
+  {:heading "About Me"
+   :points  ["I Like Beer"
+             "I'm Cool"]})
