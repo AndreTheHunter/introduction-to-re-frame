@@ -7,10 +7,11 @@
 (defmulti render first)
 
 (defmethod render :title [[_ [title & [sub-title]]]]
-  [:div.centered
-   [:h1 title]
-   (when sub-title
-     [:h2 sub-title])])
+  [:div.centered.grid.align-center.justify-center
+   [:div.title
+    [:h1 title]
+    (when sub-title
+      [:h2 sub-title])]])
 
 (defmethod render :heading [[_ heading]]
   [:h1 heading])
@@ -18,7 +19,9 @@
 (defmethod render :points [[_ points]]
   (into [:ul] (map #(do [:li %]) points)))
 
-(defn ->slide [m]
+(defmethod render :default [[_ v]] v)
+
+(defn- ->slide [m]
   (map render m))
 
 (defn main []

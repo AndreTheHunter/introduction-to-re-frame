@@ -1,19 +1,28 @@
 @import '../../node_modules/reflex-grid/scss/reflex'
 
-#app .main
+body
+  margin: 0
+
+#app
+  +reset-whitespace
+  font-family: 'Helvetica Neue', Arial, sans-serif
+  font-weight: 500
+  height: 100vh
+  font-size: 3.5vmin
   .slide
-    //@extend .col-12
-    //height: 100vh
-
-    //.centered
-      //@extend .align-center
-
+    background-color: cadetblue
+    border: 1px solid black
+    $height: 90vh
+    height: $height
+    width: calc(#{$height} * 1.8)
+    padding: 1em
+    li
+      text-align-last: left
+      font-size: 1.7em
+    h1
+      font-size: 2.5em
+    .centered
+      height: 100%
     .title
-      h1
-        //@extend .align-center
-        display: block
-        font-size: large
-
-      h2
-        display: block
-        font-size: large
+      +reset-whitespace
+      text-align: center

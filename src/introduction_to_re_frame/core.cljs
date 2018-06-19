@@ -3,6 +3,7 @@
     [introduction-to-re-frame.event :as event]
     [introduction-to-re-frame.view :as view]
     [re-frame.core :as rf]
+    [re-pressed.core :as rp]
     [reagent.core :as r]))
 
 (when js/goog.DEBUG
@@ -14,7 +15,10 @@
 
 (defn ^:export init []
   (rf/dispatch-sync [::event/initialize])
-  ;(rf/dispatch
-  ;  [::rp/set-keydown-rules
-  ;   {:event-keys []}])
+  (rf/dispatch-sync [::rp/add-keyboard-event-listener "keyup"])
+  (rf/dispatch [::rp/set-keyup-rules {:event-keys [[[::event/next-slide]
+                                                    [{:which 39}] ;right-arrow
+                                                    [{:which 32}]] ;space
+                                                   [[::event/prev-slide]
+                                                    [{:which 37}]]]}]) ;left-arrow
   (render))

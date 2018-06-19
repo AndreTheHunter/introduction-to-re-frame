@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "create-react-class": "^15.6.3",
+    "jquery": "^3.3.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "reflex-grid": "^2.0.2"
