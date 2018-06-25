@@ -18,11 +18,7 @@
       [:h2 sub-title])]])
 
 (defn- render-heading [heading]
-  (let [[heading subheading] (if (string? heading) [heading nil] heading)]
-    [:div.heading
-     [:h1 heading]
-     (when subheading
-       [:h2 subheading])]))
+  [:h1 heading])
 
 (defn- render-point [point]
   (cond

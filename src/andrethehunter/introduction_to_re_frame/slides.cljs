@@ -93,7 +93,7 @@
                         :DOM          [:view]
                         :event        [:db]})})
 (def example
-  {:heading ["Example TODO app"]
+  {:heading "Example TODO app"
    :live    (do
               (rf/dispatch [::todo-event/initialise])
               todo-view/main)})
