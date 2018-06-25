@@ -1,7 +1,7 @@
-(ns introduction-to-re-frame.core
+(ns andrethehunter.introduction-to-re-frame.core
   (:require
-    [introduction-to-re-frame.event :as event]
-    [introduction-to-re-frame.view :as view]
+    [andrethehunter.introduction-to-re-frame.event :as event]
+    [andrethehunter.introduction-to-re-frame.view :as view]
     [re-frame.core :as rf]
     [re-pressed.core :as rp]
     [reagent.core :as r]))
@@ -10,15 +10,20 @@
   (defn ^:dev/before-load clear-console []
     (js/console.clear)))
 
-(defn ^:dev/after-load render []
-  (r/render [view/main] (js/document.getElementById "app")))
+(defn render []
+  (r/render [view/main] (js/document.getElementById "slide-deck")))
+
+(defn ^:dev/after-load reload []
+  (rf/dispatch [::event/update])
+  (render))
 
 (defn ^:export init []
   (rf/dispatch-sync [::event/initialize])
   (rf/dispatch-sync [::rp/add-keyboard-event-listener "keyup"])
-  (rf/dispatch [::rp/set-keyup-rules {:event-keys [[[::event/next-slide]
+  (rf/dispatch [::rp/set-keyup-rules {:event-keys [[[::event/next]
                                                     [{:which 39}] ;right-arrow
                                                     [{:which 32}]] ;space
-                                                   [[::event/prev-slide]
+                                                   [[::event/prev]
                                                     [{:which 37}]]]}]) ;left-arrow
+  ;TODO add routing to update URL and history
   (render))

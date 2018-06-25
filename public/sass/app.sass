@@ -1,28 +1,139 @@
 @import '../../node_modules/reflex-grid/scss/reflex'
+@import url('https://fonts.googleapis.com/css?family=Inconsolata')
+//TODO importing css is deprecated, use custom css importer (maybe https://www.npmjs.com/package/node-sass-css-importer)
+@import '../../node_modules/highlight.js/styles/solarized-dark'
 
 body
   margin: 0
 
-#app
+#slide-deck
   +reset-whitespace
+  $color-bg: #002B36
+  $color-light: #C0C0C0
+  box-sizing: border-box
+  background-color: black
+  color: $color-light
   font-family: 'Helvetica Neue', Arial, sans-serif
+  font-size: 3vmin
   font-weight: 500
   height: 100vh
-  font-size: 3.5vmin
+  max-height: 100vh
+  max-width: 100vw
+  width: 100vw
   .slide
-    background-color: cadetblue
-    border: 1px solid black
+    //FIXME height should fill to the parent
     $height: 90vh
+    background-color: $color-bg
+    color: #839496
     height: $height
-    width: calc(#{$height} * 1.8)
     padding: 1em
+    position: relative
+    width: calc(#{$height} * 1.8)
     li
+      text-align: left
       text-align-last: left
       font-size: 1.7em
+      margin: 1rem 0
+      code
+        font-size: 0.8em
     h1
-      font-size: 2.5em
+      font-size: 2em
+      margin-top: 0
+      margin-bottom: .2em
+    a
+      $colour: #268BD2
+      text-decoration: none
+      border-bottom: 1px solid $colour
+      &, &:visited
+        color: $colour
+    svg
+      width: 100%
     .centered
       height: 100%
     .title
       +reset-whitespace
       text-align: center
+      font-size: 1.5em
+    pre
+      margin: 0
+      code
+        font-family: 'Inconsolata', 'Courier New', monospace
+        border: 1px solid $color-light
+        text-align-last: left
+        text-align: left
+    .live
+      color: $color-bg
+      background-color: $color-light
+      padding: 1em
+      input
+        font-size: 1em
+    #example-todo
+      p
+        margin-top: 0
+      ul
+        margin-bottom: 0
+        padding: 0
+        li
+          border: 1px solid $color-bg
+          cursor: pointer
+          font-size: 1.5em
+          list-style: none
+          margin-bottom: 0
+          padding: 0 .2em
+
+//$animation: slide-in
+//.#{$animation}-enter
+//  transform: translateX(100%)
+//  &.#{$animation}-enter-active
+//    transform: translateX(0)
+//    transition: transform 200ms ease-in-out
+//.#{$animation}-leave
+//  transform: translateX(0)
+//  &.#{$animation}-leave-active
+//    transform: translateX(-100%)
+//    transition: transform 200ms ease-in-out
+//$direction: left
+//.#{$animation}-#{$direction}-enter
+//  transform: translateX(100%)
+//  &.#{$animation}-#{$direction}-enter-active
+//    transform: translateX(0)
+//    transition: transform 200ms ease-in-out
+//.#{$animation}-#{$direction}-leave
+//  transform: translateX(0)
+//  &.#{$animation}-#{$direction}-leave-active
+//    transform: translateX(-100%)
+//    transition: transform 200ms ease-in-out
+//$direction: right
+//.#{$animation}-#{$direction}-enter
+//  transform: translateX(100%)
+//  &.#{$animation}-#{$direction}-enter-active
+//    transform: translateX(0)
+//    transition: transform 200ms ease-in-out
+//.#{$animation}-#{$direction}-leave
+//  transform: translateX(0)
+//  &.#{$animation}-#{$direction}-leave-active
+//    transform: translateX(-100%)
+//    transition: transform 200ms ease-in-out
+
+//%animation
+//  transition: transform 200ms
+//&.swipe-left-leave
+//  @extend %animation
+//  transform: translateX(-100%)
+//  &.swipe-left-leave-active
+//    transform: translateX(-200%)
+//&.swipe-left-enter
+//  @extend %animation
+//  transform: translateX(100%)
+//  &.swipe-left-enter-active
+//    transform: translateX(0)
+//&.swipe-right-leave
+//  @extend %animation
+//  transform: translateX(-100%)
+//  &.swipe-right-leave-active
+//    transform: translateX(0)
+//&.swipe-right-enter
+//  @extend %animation
+//  transform: translateX(-100%)
+//  &.swipe-right-enter-active
+//    transform: translateX(0)
