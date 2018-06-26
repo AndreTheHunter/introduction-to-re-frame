@@ -6,7 +6,5 @@
                  ;JS interop
                  [binaryage/oops "0.6.2"]
                  ;live recompiling (for examples)
-                 [org.clojure/tools.reader "1.2.1"]
-                 ;graphs
-                 [rhizome "0.2.9"]]
+                 [org.clojure/tools.reader "1.2.1"]]
   :profiles {:dev {:dependencies [[binaryage/devtools "0.9.10"]]}})

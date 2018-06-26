@@ -1,9 +1,9 @@
-(ns todo.subs
+(ns todo.sub
   (:require [re-frame.core :as re-frame]))
 
 (re-frame/reg-sub ::incomplete-tasks
   (fn [db]
-    (filter #(not (:complete? %)) (:tasks db))))
+    (remove :complete? (:tasks db))))
 
 (re-frame/reg-sub ::complete-count
   (fn [db]

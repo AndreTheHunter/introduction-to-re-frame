@@ -7,6 +7,7 @@
 (defmacro graph-svg [g]
   (graph->svg (keys g) g
     :vertical? false
+    :layout "circo"
     :options {"rank" "same;db;view;Reagent;DOM"}
     :node->descriptor (fn [n]
                         {:label (name n)})))

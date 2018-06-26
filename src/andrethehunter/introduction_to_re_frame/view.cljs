@@ -2,7 +2,6 @@
   (:require
     [andrethehunter.introduction-to-re-frame.event :as event]
     [andrethehunter.introduction-to-re-frame.sub :as sub]
-    [andrethehunter.introduction-to-re-frame.util :refer [noop]]
     [andrethehunter.introduction-to-re-frame.view.highlight :as highlight]
     [oops.core :refer [ocall]]
     [re-frame.core :as rf]))
@@ -47,9 +46,6 @@
 (defn- render-img [url]
   [:img {:src url}])
 
-(defn- render-svg [s]
-  [:div {:dangerouslySetInnerHTML {:__html s}}])
-
 (defn- render-live [component]
   [:div.live {:on-click #(ocall % "stopPropagation")}
    [component]])
@@ -63,7 +59,6 @@
             :code/js render-js
             :code/clj render-clj
             :img render-img
-            :svg render-svg
             :live render-live
             identity)]
     (f v)))
