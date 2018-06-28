@@ -122,7 +122,7 @@
   {:heading "Why re-frame?"
    :points  ["Clojure"
              "Easier to test"
-             "Graete tooling"
+             "Great tooling!"
              "Use React"
              "Good performance"
              "Scales to big applications"]})
