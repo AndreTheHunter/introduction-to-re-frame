@@ -32,7 +32,7 @@
 
 (reg-event ::initialize
   (fn [db]
-    (ocall js/window "addEventListener" "hashchange" (fn [] (rf/dispatch [::hash->position])) false)
+    (ocall js/window "addEventListener" "hashchange" #(rf/dispatch [::hash->position]) false)
     (-> db
         (assoc :slides slides/-order)
         hash->position)))
