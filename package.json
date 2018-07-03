@@ -8,11 +8,13 @@
   "scripts": {
     "clean": "rimraf public/css/* public/js/*",
     "build:sass": "node-sass public/sass/app.sass > public/css/app.css",
+    "build:cljs": "exit 1",
     "watch:sass": "node-sass --watch public/sass -o public/css",
     "watch:cljs": "shadow-cljs watch app",
     "watch": "npm-run-all stop clean build:sass --parallel watch:*",
     "start": "npm run watch",
-    "stop": "shadow-cljs stop"
+    "stop": "shadow-cljs stop",
+    "build": "npm-run-all clean build:*"
   },
   "watch": {
     "sass": "public/sass/**.sass"
