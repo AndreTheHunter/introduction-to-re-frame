@@ -18,7 +18,7 @@
 
 (defn- location-hash
   ([]
-   (re-find #"(?<=#).+" (oget js/location "hash")))
+   (subs (oget js/location "hash") 1))
   ([hash]
    (oset! js/location "hash" hash)))
 
@@ -46,10 +46,10 @@
     :position position))
 
 (reg-event ::next
-  (fn [{:keys                 [:slides]
+  (fn [{:keys                 [slides]
         [slide-pos point-pos] :position
         :as                   db}]
-    (let [{:keys [:points] :as slide} (get slides slide-pos)
+    (let [{:keys [points] :as slide} (get slides slide-pos)
           max-points (count points)
           max-slide (- (count slides) 1)
           next-point (inc point-pos)
@@ -60,10 +60,10 @@
       (set-position db position))))
 
 (reg-event ::prev
-  (fn [{:keys                 [:slides]
+  (fn [{:keys                 [slides]
         [slide-pos point-pos] :position
         :as                   db}]
-    (let [{:keys [:points] :as slide} (get slides slide-pos)
+    (let [{:keys [points] :as slide} (get slides slide-pos)
           min-points 0
           min-slide 0
           prev-point (dec point-pos)

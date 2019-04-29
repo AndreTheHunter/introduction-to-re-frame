@@ -1,8 +1,9 @@
 {:lein   true
  :builds {:app {:target          :browser
-                :output-dir      "public/js"
+                :output-dir      "docs/js"
                 :asset-path      "/js"
                 :modules         {:app {:entries [andrethehunter.introduction-to-re-frame.core]}}
                 :ignore-warnings true
-                :devtools        {:http-root  "public"
-                                  :http-port  8080}}}}
+                :devtools        {:http-root "docs"
+                                  :http-port 8080}
+                :release         {:compiler-options {:optimizations :simple}}}}}

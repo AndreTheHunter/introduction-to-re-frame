@@ -3,4 +3,4 @@
   #?(:cljs (:require-macros andrethehunter.introduction-to-re-frame.io)))
 
 (defmacro slurp [file]
-  (clojure.core/slurp file))
+  (clojure.core/slurp file :encoding "UTF-8"))

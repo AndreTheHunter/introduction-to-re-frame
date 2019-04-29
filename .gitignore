@@ -1,9 +1,6 @@
-.*
+*.iml
+/.shadow-cljs/
+/.idea/
+/docs/js/manifest.edn
 /node_modules/
 /target/
-/public/js/
-/public/css/
-!/.git*
-!/.idea/modules.xml
-!/.idea/vcs.xml
-!/.idea/misc.xml
