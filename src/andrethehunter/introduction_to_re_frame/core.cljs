@@ -21,9 +21,9 @@
   (rf/dispatch-sync [::event/initialize])
   (rf/dispatch-sync [::rp/add-keyboard-event-listener "keyup"])
   (rf/dispatch [::rp/set-keyup-rules {:event-keys [[[::event/next]
-                                                    [{:which 39}] ;right-arrow
-                                                    [{:which 32}]] ;space
+                                                    [{:keyCode 39}] ;right-arrow
+                                                    [{:keyCode 32}]] ;space
                                                    [[::event/prev]
-                                                    [{:which 37}]]]}]) ;left-arrow
+                                                    [{:keyCode 37}]]]}]) ;left-arrow
   ;TODO add routing to update URL and history
   (render))

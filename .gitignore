@@ -1,6 +1,7 @@
 *.iml
-/.shadow-cljs/
 /.idea/
+/.shadow-cljs/
+/docs/js/cljs-runtime/
 /docs/js/manifest.edn
 /node_modules/
 /target/
